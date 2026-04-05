@@ -69,7 +69,7 @@ h2 { margin-bottom: 16px; }
 .app-release-cover {
   position: absolute;
   inset: 0;
-  z-index: 10;
+  z-index: 1;   /* 🔥 LOWER THIS */
 
   display: flex;
   align-items: center;
