@@ -60,7 +60,24 @@ h2 { margin-bottom: 16px; }
 .app-card:hover {
   transform: translateY(-4px);
 }
+.app-card-covered {
+  position: relative;
+}
 
+.app-release-cover {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(247,244,238,0.92);
+  backdrop-filter: blur(10px);
+
+  border-radius: inherit;
+}
 .app-top {
   display: flex;
   gap: 12px;
