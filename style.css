@@ -253,26 +253,15 @@ main {
   height: 76px;
   border-radius: 22px;
   flex: 0 0 76px;
-  display: grid;
-  place-items: center;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  color: #0d0d0d;
-  font-size: 1.3rem;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  display: block;
+  object-fit: cover;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
 }
 
-.icon-add {
-  background: linear-gradient(135deg, #ffd965 0%, #f1cc4b 100%);
-}
-
-.icon-kanji {
-  background: linear-gradient(135deg, #9de4ff 0%, #8ed7f7 100%);
-}
-
-.icon-jlpt {
-  background: linear-gradient(135deg, #f8f8f8 0%, #f0ede8 100%);
-  border: 1px solid #ece5d8;
+.icon-image {
+  overflow: hidden;
 }
 
 .app-tagline {
