@@ -26,17 +26,12 @@ body {
   padding: 20px;
   border-radius: 20px;
   position: relative;
-  overflow: hidden;
 }
 
 .app-icon-image {
   width: 64px;
   height: 64px;
   border-radius: 16px;
-}
-
-.app-card-covered {
-  position: relative;
 }
 
 .app-release-cover {
@@ -46,29 +41,15 @@ body {
   align-items: center;
   justify-content: center;
   background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(6px);
 }
 
 .app-release-cover-inner {
   text-align: center;
-  padding: 24px;
-  border-radius: 16px;
-  border: 1px solid var(--line);
-  background: white;
 }
 
 .app-release-badge {
-  display: inline-block;
+  background: #fff7d8;
   padding: 6px 10px;
   border-radius: 999px;
-  background: #fff7d8;
   font-weight: bold;
-}
-
-.app-release-title {
-  margin-top: 10px;
-}
-
-.app-release-copy {
-  color: var(--muted);
 }
