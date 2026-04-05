@@ -1,36 +1,23 @@
-/* Premium style.css */
 :root {
   --bg: #f7f4ee;
   --bg-soft: #fffdf8;
   --surface: #ffffff;
-  --surface-soft: #fcfaf6;
   --text: #151515;
   --muted: #666666;
   --line: #e8e1d6;
   --accent: #f1cc4b;
-  --accent-dark: #8f6f00;
-  --blue: #8ed7f7;
-  --shadow: 0 18px 48px rgba(0, 0, 0, 0.08);
+  --shadow: 0 18px 48px rgba(0,0,0,0.08);
   --radius-xl: 28px;
-  --radius-lg: 20px;
-  --radius-md: 14px;
   --max: 1120px;
-  --transition: 0.18s ease;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
-  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   background:
-    radial-gradient(circle at top left, rgba(255, 245, 190, 0.7) 0%, transparent 24%),
-    linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
+    radial-gradient(circle at top left, rgba(255,245,190,0.6), transparent 30%),
+    var(--bg);
+  color: var(--text);
 }
 
 .container {
@@ -44,23 +31,21 @@ body {
 
 .hero-card {
   background: rgba(255,255,255,0.85);
-  border-radius: 32px;
   padding: 32px;
+  border-radius: 32px;
   box-shadow: var(--shadow);
-  backdrop-filter: blur(10px);
 }
 
-h1 {
-  font-size: clamp(2rem, 4vw, 3rem);
-}
+h1 { font-size: 2.5rem; margin: 10px 0; }
+h2 { margin-bottom: 16px; }
 
-h2 {
-  font-size: 1.5rem;
+.hero-copy, .app-desc, .app-tagline {
+  color: var(--muted);
 }
 
 .app-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3,1fr);
   gap: 20px;
 }
 
@@ -69,7 +54,7 @@ h2 {
   padding: 22px;
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow);
-  transition: var(--transition);
+  transition: 0.2s;
 }
 
 .app-card:hover {
@@ -78,7 +63,7 @@ h2 {
 
 .app-top {
   display: flex;
-  gap: 14px;
+  gap: 12px;
   align-items: center;
 }
 
@@ -88,17 +73,11 @@ h2 {
   border-radius: 18px;
 }
 
-.app-desc {
-  margin-top: 12px;
-  color: var(--muted);
-}
-
 .btn {
-  display: inline-flex;
+  display: inline-block;
   margin-top: 14px;
   padding: 10px 16px;
   border-radius: 12px;
-  font-weight: 600;
   background: #111;
   color: white;
   text-decoration: none;
@@ -108,15 +87,20 @@ h2 {
   background: #333;
 }
 
-.app-release-cover {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(247,244,238,0.92);
-  backdrop-filter: blur(10px);
-  border-radius: inherit;
+.privacy-card {
+  margin-top: 32px;
+  padding: 28px;
+  border-radius: var(--radius-xl);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.legal {
+  margin-top: 40px;
+  padding: 28px;
+  border-radius: var(--radius-xl);
+  background: var(--surface);
+  box-shadow: var(--shadow);
 }
 
 .footer {
