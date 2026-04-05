@@ -209,7 +209,63 @@ main {
   transform: translateY(-4px);
   box-shadow: 0 24px 54px rgba(0, 0, 0, 0.11);
 }
+.app-card-covered {
+  position: relative;
+  overflow: hidden;
+}
 
+.app-release-cover {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 253, 248, 0.96) 0%, rgba(247, 244, 238, 0.98) 100%);
+  backdrop-filter: blur(6px);
+  text-align: center;
+}
+
+.app-release-cover-inner {
+  width: 100%;
+  max-width: 280px;
+  padding: 28px 22px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.08);
+}
+
+.app-release-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #fff7d8;
+  border: 1px solid #f0df99;
+  color: #7a5d00;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.app-release-title {
+  margin-top: 14px;
+  font-size: 1.3rem;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.app-release-copy {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.6;
+}
 .app-top {
   display: flex;
   align-items: center;
