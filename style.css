@@ -1,72 +1,167 @@
-/* CSS Variables */
+/* Base */
 :root {
-    --primary-color: #3498db;
-    --secondary-color: #2ecc71;
-    --font-family: 'Arial', sans-serif;
+  --bg: #f7f4ee;
+  --surface: #ffffff;
+  --text: #111;
+  --muted: #666;
+  --line: #e8e1d6;
+  --accent: #fff3c4;
 }
 
-/* Global Styles */
 body {
-    margin: 0;
-    font-family: var(--font-family);
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    body {
-        font-size: 14px;
-    }
+/* Layout */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
 }
 
-/* Hero Section */
+.section {
+  margin-top: 40px;
+}
+
+/* Hero */
 .hero {
-    background-color: var(--primary-color);
-    color: #fff;
-    padding: 50px;
-    text-align: center;
+  padding: 40px 0;
 }
 
-/* App Cards */
+.hero-card {
+  background: var(--surface);
+  padding: 32px;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+}
+
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #7a5d00;
+}
+
+.hero-copy {
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+/* Apps */
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
 .app-card {
-    background-color: white;
-    border: 1px solid #eaeaea;
-    border-radius: 5px;
-    padding: 20px;
-    margin: 10px;
+  background: var(--surface);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  position: relative;
+}
+
+.app-top {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.app-icon-image {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+}
+
+.app-tagline {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.app-desc {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
 /* Buttons */
-.button {
-    background-color: var(--secondary-color);
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 5px;
+.btn {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
 }
 
-/* Legal Section */
+.btn-primary {
+  background: #111;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #333;
+}
+
+/* Cover */
+.app-card-covered {
+  position: relative;
+}
+
+.app-release-cover {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(247,244,238,0.92);
+  backdrop-filter: blur(10px);
+  border-radius: inherit;
+}
+
+.app-release-cover-inner {
+  text-align: center;
+  padding: 26px 20px;
+  border-radius: 18px;
+  background: white;
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+}
+
+.app-release-badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--accent);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.app-release-title {
+  margin-top: 12px;
+  font-size: 1.2rem;
+}
+
+.app-release-copy {
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+/* Support */
 .legal {
-    font-size: 12px;
-    color: #666;
-    padding: 10px;
+  margin-top: 40px;
+  padding: 28px;
+  background: var(--surface);
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
 }
 
-/* Footer */
 .footer {
-    background-color: #f1f1f1;
-    padding: 20px;
-    text-align: center;
-}
-
-/* Media Queries */
-@media (max-width: 600px) {
-    .hero {
-        padding: 20px;
-    }
+  text-align: center;
+  margin-top: 40px;
+  color: var(--muted);
 }
