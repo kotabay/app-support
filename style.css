@@ -55,6 +55,8 @@ h2 { margin-bottom: 16px; }
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow);
   transition: 0.2s;
+  position: relative;
+  overflow: hidden; 
 }
 
 .app-card:hover {
