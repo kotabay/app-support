@@ -93,15 +93,23 @@ h2 { margin-bottom: 16px; }
 }
 
 .btn {
-  display: inline-block;
+  display: inline-flex;           /* 🔥 change */
+  align-items: center;
+  justify-content: center;
+
+  width: fit-content;             /* 🔥 prevents stretching */
+  max-width: 100%;                /* 🔥 prevents overflow */
+
   margin-top: 14px;
   padding: 10px 16px;
+
   border-radius: 12px;
   background: #111;
   color: white;
   text-decoration: none;
-}
 
+  box-sizing: border-box;         /* 🔥 important */
+}
 .btn:hover {
   background: #333;
 }
