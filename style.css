@@ -1,55 +1,11 @@
-:root {
-  --line: #e8e1d6;
-  --muted: #666;
-}
+/* CSS Content from commit abe213d */
 
 body {
-  font-family: -apple-system, sans-serif;
-  margin: 0;
-  background: #f7f4ee;
+    background-color: #f0f0f0;
 }
 
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 40px 20px;
+h1 {
+    color: #333;
 }
 
-.app-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.app-card {
-  background: white;
-  padding: 20px;
-  border-radius: 20px;
-  position: relative;
-}
-
-.app-icon-image {
-  width: 64px;
-  height: 64px;
-  border-radius: 16px;
-}
-
-.app-release-cover {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255,255,255,0.95);
-}
-
-.app-release-cover-inner {
-  text-align: center;
-}
-
-.app-release-badge {
-  background: #fff7d8;
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-weight: bold;
-}
+/* Add additional styles as needed */
