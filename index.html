@@ -3,27 +3,548 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Support Page</title>
+  <title>Kota Ogino | App Support</title>
+  <meta
+    name="description"
+    content="Support, legal pages, and app links for apps by Kota Ogino."
+  />
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --surface: #ffffff;
+      --surface-soft: #fcfaf6;
+      --text: #151515;
+      --muted: #666666;
+      --line: #e8e1d6;
+      --accent: #f1cc4b;
+      --accent-dark: #b68d00;
+      --blue: #8ed7f7;
+      --shadow: 0 18px 48px rgba(0, 0, 0, 0.08);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+        "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, #fff6cc 0%, transparent 30%),
+        radial-gradient(circle at top right, #fff1b0 0%, transparent 22%),
+        linear-gradient(180deg, #fffdf8 0%, #f7f4ee 100%);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 64px 0 28px;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 32px;
+      box-shadow: var(--shadow);
+      padding: 32px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(241, 204, 75, 0.22) 0%, rgba(241, 204, 75, 0) 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #fff7d8;
+      color: #7a5d00;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 18px 0 10px;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .meta-chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      color: #333;
+      font-size: 0.95rem;
+    }
+
+    main {
+      padding: 12px 0 60px;
+    }
+
+    .section-title {
+      margin: 0 0 18px;
+      font-size: 1.55rem;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .section-copy {
+      margin: 0 0 28px;
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
+    }
+
+    .app-card {
+      grid-column: span 4;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      min-height: 100%;
+    }
+
+    .app-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 54px rgba(0, 0, 0, 0.11);
+    }
+
+    .app-top {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .icon {
+      width: 76px;
+      height: 76px;
+      border-radius: 22px;
+      flex: 0 0 76px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #0d0d0d;
+      font-size: 1.3rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+    }
+
+    .icon-add {
+      background:
+        radial-gradient(circle at 30% 25%, #fff8bf 0%, transparent 35%),
+        linear-gradient(135deg, #ffd965 0%, #f1cc4b 52%, #e3b836 100%);
+    }
+
+    .icon-kanji {
+      background:
+        radial-gradient(circle at 30% 25%, #e8f9ff 0%, transparent 35%),
+        linear-gradient(135deg, #9de4ff 0%, #8ed7f7 50%, #6fc6ec 100%);
+    }
+
+    .icon-jlpt {
+      background:
+        radial-gradient(circle at 30% 25%, #fff7c8 0%, transparent 35%),
+        linear-gradient(135deg, #f8f8f8 0%, #f0ede8 100%);
+      border: 1px solid #ece5d8;
+    }
+
+    .app-name {
+      margin: 0;
+      font-size: 1.25rem;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+    }
+
+    .app-tagline {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.35;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+      color: #444;
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    .app-desc {
+      margin: 0;
+      color: #2f2f2f;
+      font-size: 0.98rem;
+    }
+
+    .app-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 6px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 0 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+
+    .btn:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: #111111;
+      color: #ffffff;
+    }
+
+    .btn-secondary {
+      background: #fff8d7;
+      color: #6f5600;
+      border: 1px solid #f0df99;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #333;
+      border: 1px solid var(--line);
+    }
+
+    .legal {
+      margin-top: 44px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+
+    .legal-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 28px;
+    }
+
+    .legal p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .legal-links {
+      display: grid;
+      gap: 12px;
+    }
+
+    .legal-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+      font-weight: 700;
+    }
+
+    .footer {
+      padding: 24px 0 56px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer a {
+      color: #222;
+      font-weight: 600;
+    }
+
+    @media (max-width: 980px) {
+      .app-card {
+        grid-column: span 6;
+      }
+
+      .legal-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .hero {
+        padding-top: 28px;
+      }
+
+      .hero-card,
+      .legal,
+      .app-card {
+        border-radius: 22px;
+      }
+
+      .app-card {
+        grid-column: span 12;
+      }
+
+      .app-top {
+        align-items: flex-start;
+      }
+
+      .icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 18px;
+        flex-basis: 64px;
+        font-size: 1.1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Support Page</h1>
+  <header class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <span class="eyebrow">Kota Ogino · App Support</span>
+        <h1>Support, legal pages, and app links in one place</h1>
+        <p>
+          This page collects support information for apps by Kota Ogino, including
+          App Store links, legal pages, and contact details.
+        </p>
 
-  <h2>Apps</h2>
-  <ul>
-    <li>Pupu Quest: Add / ぷぷのぼうけん：たしざん</li>
-    <li>Pupu Quest: Kanji / ぷぷのぼうけん：漢字</li>
-    <li>
-      <a href="study-now-jlpt.html">Study Now:JLPT</a>
-    </li>
-  </ul>
+        <div class="meta">
+          <span class="meta-chip">Support email: kotaba.app@gmail.com</span>
+          <span class="meta-chip">Website: kotabay.github.io</span>
+          <span class="meta-chip">Apps for learning and focused study</span>
+        </div>
+      </div>
+    </div>
+  </header>
 
-  <h2>Support</h2>
-  <p>
-    Contact:
-    <a href="mailto:kotaba.app@gmail.com">kotaba.app@gmail.com</a>
-  </p>
+  <main>
+    <div class="container">
+      <section aria-labelledby="apps-title">
+        <h2 id="apps-title" class="section-title">Apps</h2>
+        <p class="section-copy">
+          Browse the current apps, open their App Store pages, or visit the
+          dedicated legal pages for each app.
+        </p>
 
-  <h2>Privacy Policy</h2>
-  <p>These apps do not collect personal information unless otherwise stated in the app-specific policy pages.</p>
+        <div class="app-grid">
+          <article class="app-card">
+            <div class="app-top">
+              <div class="icon icon-add" aria-hidden="true">＋</div>
+              <div>
+                <h3 class="app-name">Pupu Quest: Add</h3>
+                <p class="app-tagline">Learn Addition by Running!</p>
+              </div>
+            </div>
+
+            <div class="pill-row">
+              <span class="pill">Education</span>
+              <span class="pill">Ages 4+</span>
+              <span class="pill">English + Japanese</span>
+            </div>
+
+            <p class="app-desc">
+              A playful addition game where children keep Pupu running by solving
+              math questions.
+            </p>
+
+            <div class="app-links">
+              <a
+                class="btn btn-primary"
+                href="https://apps.apple.com/jp/app/pupu-quest-add/id6758855396?l=en-US"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on App Store
+              </a>
+            </div>
+          </article>
+
+          <article class="app-card">
+            <div class="app-top">
+              <div class="icon icon-kanji" aria-hidden="true">漢</div>
+              <div>
+                <h3 class="app-name">Pupu Quest: Elementary Kanji</h3>
+                <p class="app-tagline">Learn kanji through fun game!</p>
+              </div>
+            </div>
+
+            <div class="pill-row">
+              <span class="pill">Casual</span>
+              <span class="pill">Ages 4+</span>
+              <span class="pill">English + Japanese</span>
+            </div>
+
+            <p class="app-desc">
+              An adventure-style kanji learning app focused on reading practice
+              through short, game-like study sessions.
+            </p>
+
+            <div class="app-links">
+              <a
+                class="btn btn-primary"
+                href="https://apps.apple.com/jp/app/pupu-quest-elementary-kanji/id6759417474?l=en-US"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on App Store
+              </a>
+            </div>
+          </article>
+
+          <article class="app-card">
+            <div class="app-top">
+              <div class="icon icon-jlpt" aria-hidden="true">N1</div>
+              <div>
+                <h3 class="app-name">
+                  <a href="study-now-jlpt.html">Study Now:JLPT</a>
+                </h3>
+                <p class="app-tagline">Focus-first JLPT study with Screen Time tools</p>
+              </div>
+            </div>
+
+            <div class="pill-row">
+              <span class="pill">Coming soon</span>
+              <span class="pill">N1–N5</span>
+              <span class="pill">Focus & study</span>
+            </div>
+
+            <p class="app-desc">
+              A JLPT study app designed to help users stay focused by combining
+              structured study tools with iOS Screen Time restrictions.
+            </p>
+
+            <div class="app-links">
+              <a class="btn btn-primary" href="study-now-jlpt.html">
+                Open app page
+              </a>
+              <a class="btn btn-ghost" href="study-now-jlpt-terms.html">
+                Terms
+              </a>
+              <a class="btn btn-ghost" href="study-now-jlpt-privacy.html">
+                Privacy
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="legal" aria-labelledby="legal-title">
+        <div class="legal-grid">
+          <div>
+            <h2 id="legal-title" class="section-title">Support and legal</h2>
+            <p>
+              For app support, privacy questions, or general inquiries, contact
+              Kota Ogino at
+              <a href="mailto:kotaba.app@gmail.com">kotaba.app@gmail.com</a>.
+              App-specific privacy practices and terms are provided on the relevant
+              legal pages.
+            </p>
+          </div>
+
+          <div class="legal-links">
+            <a class="legal-link" href="study-now-jlpt.html">
+              <span>Study Now:JLPT app page</span>
+              <span>→</span>
+            </a>
+            <a class="legal-link" href="study-now-jlpt-terms.html">
+              <span>Study Now:JLPT Terms of Use</span>
+              <span>→</span>
+            </a>
+            <a class="legal-link" href="study-now-jlpt-privacy.html">
+              <span>Study Now:JLPT Privacy Policy</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>
+        © Kota Ogino · Support contact:
+        <a href="mailto:kotaba.app@gmail.com">kotaba.app@gmail.com</a>
+      </p>
+    </div>
+  </footer>
 </body>
 </html>
