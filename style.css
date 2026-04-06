@@ -1,85 +1,107 @@
 :root {
-  --bg: #f7f4ee;
-  --bg-soft: #fffdf8;
+  --bg: #f7f7f5;
+  --bg-accent: #fff8d9;
   --surface: #ffffff;
   --text: #151515;
-  --muted: #666666;
-  --line: #e8e1d6;
-  --accent: #f1cc4b;
-  --shadow: 0 18px 48px rgba(0,0,0,0.08);
-  --radius-xl: 28px;
-  --max: 1120px;
+  --muted: #5f5f5f;
+  --line: #e8e5dc;
+  --accent: #e9c64a;
+  --accent-dark: #7a5d00;
+
+  --shadow-soft: 0 8px 26px rgba(0,0,0,0.03);
+  --shadow-card: 0 10px 30px rgba(0,0,0,0.04);
+
+  --radius-xl: 24px;
+  --radius-lg: 22px;
+
+  --max: 900px;
 }
 
+/* Base */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background:
-    radial-gradient(circle at top left, rgba(255,245,190,0.6), transparent 30%),
-    var(--bg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(180deg, var(--bg-accent) 0, var(--bg) 180px);
   color: var(--text);
+  line-height: 1.65;
 }
 
 .container {
-  width: min(calc(100% - 32px), var(--max));
+  max-width: var(--max);
   margin: 0 auto;
+  padding: 32px 20px 60px;
 }
 
-.hero {
-  padding: 56px 0 24px;
-}
-
+/* Hero (match legal pages) */
 .hero-card {
-  background: rgba(255,255,255,0.85);
-  padding: 32px;
-  border-radius: 32px;
-  box-shadow: var(--shadow);
+  background: rgba(255,255,255,0.72);
+  backdrop-filter: blur(4px);
+  border: 1px solid #f0e4a9;
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  box-shadow: var(--shadow-card);
 }
 
-h1 { font-size: 2.5rem; margin: 10px 0; }
-h2 { margin-bottom: 16px; }
+.eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  background: #fff2b8;
+  border: 1px solid #f0df8f;
+  border-radius: 999px;
+  padding: 6px 10px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
 
-.hero-copy, .app-desc, .app-tagline {
+h1 {
+  margin: 0 0 8px;
+  font-size: clamp(32px, 6vw, 46px);
+  line-height: 1.05;
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 24px;
+}
+
+h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.hero-copy,
+.app-desc,
+.app-tagline {
   color: var(--muted);
 }
 
+/* Grid */
 .app-grid {
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  gap: 20px;
+  gap: 18px;
+  margin-top: 24px;
 }
 
+/* Cards */
 .app-card {
   background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
   padding: 22px;
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow);
-  transition: 0.2s;
+  box-shadow: var(--shadow-soft);
   position: relative;
-  overflow: hidden; 
+  overflow: hidden;
+  transition: 0.2s;
 }
 
 .app-card:hover {
-  transform: translateY(-4px);
-}
-.app-card-covered {
-  position: relative;
+  transform: translateY(-2px);
 }
 
-.app-release-cover {
-  position: absolute;
-  inset: 0;
-  z-index: 1;   /* 🔥 LOWER THIS */
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: rgba(247,244,238,0.92);
-  backdrop-filter: blur(10px);
-
-  border-radius: inherit;
-}
 .app-top {
   display: flex;
   gap: 12px;
@@ -92,138 +114,77 @@ h2 { margin-bottom: 16px; }
   border-radius: 18px;
 }
 
+/* Button (simpler like legal pages) */
 .btn {
-  display: inline-flex;           /* 🔥 change */
-  align-items: center;
-  justify-content: center;
-
-  width: fit-content;             /* 🔥 prevents stretching */
-  max-width: 100%;                /* 🔥 prevents overflow */
-
+  display: inline-block;
   margin-top: 14px;
-  padding: 10px 16px;
-
-  border-radius: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
   background: #111;
   color: white;
   text-decoration: none;
-
-  box-sizing: border-box;         /* 🔥 important */
+  font-size: 14px;
 }
+
 .btn:hover {
   background: #333;
 }
 
+/* Overlay */
+.app-release-cover {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(4px);
+}
+
+/* Sections (match legal card style) */
+.legal,
 .privacy-card {
-  margin-top: 32px;
-  padding: 28px;
-  border-radius: var(--radius-xl);
   background: var(--surface);
-  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin-top: 22px;
+  box-shadow: var(--shadow-soft);
 }
 
-.legal {
-  margin-top: 40px;
-  padding: 28px;
-  border-radius: var(--radius-xl);
-  background: var(--surface);
-  box-shadow: var(--shadow);
-}
-
+/* Footer */
 .footer {
   text-align: center;
-  margin: 40px 0;
+  margin-top: 40px;
   color: var(--muted);
+  font-size: 14px;
 }
 
-/* =========================
-   TABLET
-========================= */
-@media (max-width: 980px) {
-  .container {
-    width: calc(100% - 24px);
-  }
-
+/* Responsive */
+@media (max-width: 900px) {
   .app-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    grid-template-columns: repeat(2,1fr);
   }
 }
 
-/* =========================
-   MOBILE
-========================= */
-@media (max-width: 680px) {
-
-  /* Container */
-  .container {
-    width: calc(100% - 20px);
-    margin: 0 auto;
-  }
-
-  /* Grid */
+@media (max-width: 640px) {
   .app-grid {
     grid-template-columns: 1fr;
-    gap: 14px;
   }
 
-  /* Hero */
-  .hero {
-    padding: 28px 0 12px;
+  .container {
+    padding: 24px 16px 50px;
   }
 
-  .hero-card {
-    padding: 20px;
-    border-radius: 18px;
-  }
-
-  h1 {
-    font-size: 1.7rem;
-    line-height: 1.2;
-  }
-
-  /* Cards */
   .app-card {
-    padding: 16px;
-    border-radius: 18px;
+    padding: 18px;
   }
 
-  .app-top {
-    gap: 10px;
-    align-items: flex-start;
-  }
-
-  .app-icon-image {
-    width: 52px;
-    height: 52px;
-  }
-
-  .app-tagline {
-    font-size: 0.85rem;
-  }
-
-  .app-desc {
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-
-  /* Buttons */
   .btn {
     width: 100%;
     text-align: center;
-    padding: 12px;
-  }
-
-  /* Sections */
-  .legal,
-  .privacy-card {
-    padding: 18px;
-    border-radius: 18px;
-  }
-
-  /* Footer */
-  .footer {
-    margin: 24px 0;
-    font-size: 0.85rem;
   }
 }
